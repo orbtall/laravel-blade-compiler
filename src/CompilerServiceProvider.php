@@ -1,4 +1,4 @@
-<?php namespace Orbtall\DbBladeCompiler;
+<?php namespace Orbtall\Blade\Compiler;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Engines\CompilerEngine;
