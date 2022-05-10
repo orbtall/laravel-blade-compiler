@@ -19,10 +19,10 @@ class CompilerServiceProvider extends ServiceProvider {
      */
     public function boot() {
 
-        $config_path = __DIR__ . '/../../../config/config.php';
+        $config_path = __DIR__ . '\..\config\config.php';
         $this->publishes([$config_path => config_path('orbtall.blade.compiler.php')], 'config');
 
-        $views_path = __DIR__ . '/../../../config/.gitkeep';
+        $views_path = __DIR__ . '\..\config\.gitkeep';
         $this->publishes([$views_path => storage_path('app/orbtall.blade.compiler/views/.gitkeep')]);
 
     }
@@ -34,7 +34,7 @@ class CompilerServiceProvider extends ServiceProvider {
      */
     public function register() {
 
-        $config_path = __DIR__ . '/../../../config/config.php';
+        $config_path = __DIR__ . '\..\config\config.php';
         $this->mergeConfigFrom($config_path, 'orbtall.blade.compiler');
         
         $this->app->singleton(BladeView::class);
