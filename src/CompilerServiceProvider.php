@@ -34,7 +34,7 @@ class CompilerServiceProvider extends ServiceProvider {
      */
     public function register() {
 
-        $config_path = __DIR__ . '/../../../config/orbtall.blade.compiler.php';
+        $config_path = __DIR__ . '/../../../config/config.php';
         $this->mergeConfigFrom($config_path, 'orbtall.blade.compiler');
         
         $this->app->singleton(DbView::class);
