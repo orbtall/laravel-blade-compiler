@@ -39,7 +39,7 @@ class CompilerServiceProvider extends ServiceProvider {
         
         $this->app->singleton(BladeView::class);
         
-        $this->app->alias(BladeView::class, 'dbview');
+        $this->app->alias(BladeView::class, 'bladeview');
 
         $this->app->bind(Compiler::class, function($app) {
             $cache_path = storage_path('app/orbtall.blade.compiler/views');

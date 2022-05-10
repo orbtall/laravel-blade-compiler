@@ -10,7 +10,7 @@ class BladeView extends Facade {
 	 * @return string
 	 */
 	protected static function getFacadeAccessor() {
-        return 'view';
+        return 'bladeview';
     }
 
 }
