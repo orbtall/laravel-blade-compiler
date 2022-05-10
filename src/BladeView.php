@@ -17,9 +17,9 @@ class BladeView extends \Illuminate\View\View implements ArrayAccess, Renderable
      * DbView constructor.
      *
      * @param Repository            $config
-     * @param DbBladeCompilerEngine $engine
+     * @param CompilerEngine $engine
      */
-    public function __construct(Repository $config, DbBladeCompilerEngine $engine)
+    public function __construct(Repository $config, CompilerEngine $engine)
     {
         $this->config = $config;
         $this->engine = $engine;
@@ -49,7 +49,7 @@ class BladeView extends \Illuminate\View\View implements ArrayAccess, Renderable
 
     /**
      * @param  string $content_field
-     * @return DbView
+     * @return BladeView
      */
     public function field($content_field)
     {

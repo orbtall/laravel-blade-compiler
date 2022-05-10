@@ -19,10 +19,10 @@ class CompilerServiceProvider extends ServiceProvider {
      */
     public function boot() {
 
-        $config_path = __DIR__ . '/../../../config/config.php';
+        $config_path = __DIR__ . '/../config/config.php';
         $this->publishes([$config_path => config_path('orbtall.blade.compiler.php')], 'config');
 
-        $views_path = __DIR__ . '/../../../config/.gitkeep';
+        $views_path = __DIR__ . '/../config/.gitkeep';
         $this->publishes([$views_path => storage_path('app/orbtall.blade.compiler/views/.gitkeep')]);
 
     }
@@ -37,14 +37,14 @@ class CompilerServiceProvider extends ServiceProvider {
         $config_path = __DIR__ . '/../config/config.php';
         $this->mergeConfigFrom($config_path, 'orbtall.blade.compiler');
         
-        $this->app->singleton(DbView::class);
+        $this->app->singleton(BladeView::class);
         
-        $this->app->alias(DbView::class, 'dbview');
+        $this->app->alias(BladeView::class, 'dbview');
 
-        $this->app->bind(DbBladeCompiler::class, function($app) {
+        $this->app->bind(Compiler::class, function($app) {
             $cache_path = storage_path('app/orbtall.blade.compiler/views');
 
-            return new DbBladeCompiler($app['files'], $cache_path, $app['config']);
+            return new Compiler($app['files'], $cache_path, $app['config']);
         });
 
     }
